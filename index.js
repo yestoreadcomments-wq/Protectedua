@@ -1,5 +1,5 @@
-// index.js
 const { Client, GatewayIntentBits } = require('discord.js');
+require('dotenv').config(); // Load .env
 
 const client = new Client({
     intents: [
@@ -9,8 +9,8 @@ const client = new Client({
     ]
 });
 
-// Put your bot token here
-const token = "MTQxMzQ5MzQ1MzY5Nzk3NDQ0Mw.G-FHnR.4PiW8o1oDmimn44cVpMfbmyg3OfP46nKsfK5Bs";
+// Use the token from .env
+const token = process.env.TOKEN;
 
 client.once('ready', () => {
     console.log(`${client.user.tag} is online!`);
