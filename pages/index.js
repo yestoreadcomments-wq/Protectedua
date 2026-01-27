@@ -12,8 +12,7 @@ export default function Home() {
     });
 
     const data = await res.json();
-    setRawUrl(`${window.location.origin}/raw/${data.id}`);
-  }
+    setRawUrl(`${window.location.origin}/api/raw/${data.id}`);
 
   return (
     <div style={{ padding: 20 }}>
