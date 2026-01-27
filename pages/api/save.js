@@ -2,7 +2,8 @@ global.store = global.store || {};
 
 export default function handler(req, res) {
   if (req.method !== "POST") {
-    return res.status(405).end();
+    res.status(405).end();
+    return;
   }
 
   const id = Math.random().toString(36).slice(2, 8);
@@ -10,5 +11,5 @@ export default function handler(req, res) {
 
   global.store[id] = text;
 
-  res.status(200).json({ id });
+  res.json({ id });
 }
