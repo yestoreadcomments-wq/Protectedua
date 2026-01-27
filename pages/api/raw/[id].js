@@ -1,12 +1,11 @@
 export default function handler(req, res) {
   const { id } = req.query;
 
-  const text = global.store?.[id];
-
-  if (!text) {
-    return res.status(404).send("Not found");
+  if (!global.store || !global.store[id]) {
+    res.status(404).send("Not found");
+    return;
   }
 
   res.setHeader("Content-Type", "text/plain");
-  res.send(text);
+  res.send(global.store[id]);
 }
